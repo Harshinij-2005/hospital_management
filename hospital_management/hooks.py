@@ -145,6 +145,15 @@ app_license = "mit"
 # 		"on_trash": "method"
 # 	}
 # }
+doc_events = {
+    "Patient Appointment": {
+        "after_insert": "hospital_management.events.appointment_created"
+    },
+     "ToDo": {
+        "validate": "hospital_management.api.custom_logic"
+    }
+}
+app_include_js = "custom_desk.bundle.js"
 
 # Scheduled Tasks
 # ---------------
@@ -256,3 +265,8 @@ app_license = "mit"
 # List of apps whose translatable strings should be excluded from this app's translations.
 # ignore_translatable_strings_from = []
 
+doc_events = {
+    "ToDo": {
+        "validate": "hospital_management.api.custom_logic"
+    }
+}
