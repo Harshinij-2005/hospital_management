@@ -265,8 +265,8 @@ app_include_js = "custom_desk.bundle.js"
 # List of apps whose translatable strings should be excluded from this app's translations.
 # ignore_translatable_strings_from = []
 
-doc_events = {
-    "ToDo": {
-        "validate": "hospital_management.api.custom_logic"
-    }
+scheduler_events = {
+    "daily": [
+        "hospital_management.tasks.daily_maintenance"
+    ]
 }
