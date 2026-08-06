@@ -1,5 +1,7 @@
-from frappe.query_builder import DocType
 import frappe
+from frappe.query_builder import DocType
+from frappe.utils import now
+
 
 @frappe.whitelist()
 def test_document_database_querybuilder():
@@ -23,7 +25,6 @@ def test_document_database_querybuilder():
     )
 
     if records:
-
         # Document API
         doc = frappe.get_doc("Appointment", records[0]["name"])
         doc.status = "Completed"
@@ -39,6 +40,38 @@ def test_document_database_querybuilder():
             )
 
     return records
+
+
+@frappe.whitelist()
+def get_recent_todos():
+    # Securely fetch the latest 5 ToDo records
+    todos = frappe.get_list(
+        "ToDo",
+        fields=["name", "description", "owner"],
+        order_by="creation desc",
+        limit=5
+    )
+
+    result = []
+
+    for todo in todos:
+        owner_email = frappe.db.get_value(
+            "User",
+            todo["owner"],
+            "email"
+        )
+
+        result.append({
+            "name": todo["name"],
+            "description": todo["description"],
+            "owner_email": owner_email
+        })
+
+    return {
+        "timestamp": now(),
+        "records": result
+    }
+
 
 def custom_logic(doc, method):
     frappe.msgprint("Hook executed!")
