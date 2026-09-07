@@ -75,3 +75,4 @@ def get_recent_todos():
 
 def custom_logic(doc, method):
     frappe.msgprint("Hook executed!")
+    

@@ -270,3 +270,4 @@ scheduler_events = {
         "hospital_management.tasks.daily_maintenance"
     ]
 }
+bench_manager_commands = "hospital_management.commands.commands"
