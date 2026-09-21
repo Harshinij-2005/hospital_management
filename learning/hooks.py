@@ -4,6 +4,7 @@ app_publisher = "learning"
 app_description = "learning"
 app_email = "learning@gmail.com"
 app_license = "mit"
+fixtures = ["Movie","Client Script"]
 
 # Apps
 # ------------------
@@ -44,7 +45,7 @@ app_license = "mit"
 
 # include js in doctype views
 # doctype_js = {"doctype" : "public/js/doctype.js"}
-# doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
+doctype_list_js = {"Class Records" : "public/js/class_records_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
 
@@ -251,8 +252,9 @@ app_license = "mit"
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
+
+
 # Translation
 # ------------
 # List of apps whose translatable strings should be excluded from this app's translations.
 # ignore_translatable_strings_from = []
-
