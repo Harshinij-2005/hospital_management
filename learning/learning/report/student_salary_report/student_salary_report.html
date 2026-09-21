@@ -1,0 +1,26 @@
+<div class="report-container">
+
+    <h2>Student Salary Report</h2>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Employee ID</th>
+                <th>Employee Name</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% for (var i = 0; i < data.length; i++) { %>
+                <tr>
+                    <td><%= data[i].employee_id %></td>
+                    <td><%= data[i].employee_name %></td>
+                    <td><%= format_money(data[i].salary) %></td>
+                </tr>
+            <% } %>
+        </tbody>
+
+    </table>
+
+</div>
